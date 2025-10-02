@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const animalRoutes = require("./routes/animal");
+const areaRoutes = require("./routes/area");
 const mongoose = require("mongoose");
 require('dotenv').config();
 
@@ -11,6 +12,7 @@ app.use(parser.json()); // transforma los datos a formato JSON
 
 //Gestión de las rutas usando el middleware
 app.use("/api", animalRoutes);
+app.use("/api", areaRoutes); // <-- agrega esta línea para usar las rutas de área
 app.use(express.json());
 
 //Conexión a la base de datos
